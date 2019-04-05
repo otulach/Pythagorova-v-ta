@@ -18,8 +18,12 @@ final class DataModel {
         Data ui = new Data();
         ui.applyBindings();
     }
-    @ComputedProperty 
+    @ComputedProperty(write = "nastavc") 
     static double c(double a,double b){
         return Math.sqrt(a * a + b * b);
+    }
+    static void nastavc(Data d, double c){
+        double a = d.getA();
+        d.setB(Math.sqrt(c * c - a * a));
     }
 }
